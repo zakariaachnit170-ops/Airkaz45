@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Tienda profesional AirKaz45 de productos electrónicos y colonias. Pago en persona en Madrid.">
+<title>AirKaz45</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; scroll-behavior: smooth;}
+  body { background:#f4f5f7; color:#222; line-height:1.6; }
+
+  header {
+    background:#111; color:#fff; padding:15px 50px;
+    display:flex; justify-content:space-between; align-items:center;
+    position:sticky; top:0; z-index:100;
+  }
+  header h1 { font-size:1.8rem; letter-spacing:1px; }
+  nav a { color:#fff; margin-left:25px; text-decoration:none; font-weight:500; transition:0.3s; }
+  nav a:hover { color:#00bcd4; }
+
+  .hero {
+    background:url('https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    height:450px; display:flex; align-items:center; justify-content:center;
+    color:#fff; text-shadow:0 0 15px rgba(0,0,0,0.6); flex-direction:column; text-align:center; padding:0 20px;
+  }
+  .hero h2 { font-size:3rem; margin-bottom:15px; animation:fadeInDown 1s ease forwards; opacity:0; }
+  .hero p { font-size:1.3rem; animation:fadeInUp 1s ease 0.5s forwards; opacity:0; }
+
+  @keyframes fadeInDown { from {opacity:0; transform:translateY(-20px);} to {opacity:1; transform:translateY(0);} }
+  @keyframes fadeInUp { from {opacity:0; transform:translateY(20px);} to {opacity:1; transform:translateY(0);} }
+
+  .section-title { text-align:center; margin:40px 0 20px; font-size:2rem; color:#111; }
+
+  .producto-destacado {
+    display:flex; flex-wrap:wrap; justify-content:center; align-items:center;
+    background:#00bcd4; color:#fff; border-radius:15px; margin:50px; overflow:hidden;
+    box-shadow:0 8px 20px rgba(0,0,0,0.2); transition:0.3s;
+  }
+  .producto-destacado:hover { transform:translateY(-5px); }
+  .producto-destacado img { width:300px; height:300px; object-fit:cover; border-radius:0 15px 15px 0; }
+  .producto-destacado-content { padding:30px; max-width:500px; }
+  .producto-destacado-content h3 { font-size:2rem; margin-bottom:15px; }
+  .producto-destacado-content p { font-size:1.1rem; margin-bottom:20px; }
+
+  .productos {
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:25px;
+    padding:0 50px 50px;
+  }
+  .producto {
+    background:#fff; border-radius:15px; box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    overflow:hidden; transition:0.3s; display:flex; flex-direction:column; justify-content:space-between;
+  }
+  .producto:hover { transform:translateY(-5px); box-shadow:0 10px 25px rgba(0,0,0,0.2); }
+  .producto img { width:100%; height:200px; object-fit:cover; transition:0.3s; }
+  .producto:hover img { transform:scale(1.05); }
+  .producto-content { padding:15px; flex-grow:1; }
+  .producto-content h3 { margin:10px 0; font-size:1.2rem; }
+  .producto-content p { font-size:0.95rem; color:#555; }
+
+  .btn {
+    background-color:#00bcd4; color:#fff; border:none; padding:12px 25px; margin:15px;
+    border-radius:30px; cursor:pointer; font-weight:600; text-align:center; transition:0.3s; display:inline-block;
+    text-decoration:none;
+  }
+  .btn:hover { background-color:#0097a7; transform:scale(1.05); }
+
+  .contacto, .pago {
+    background:#fff; padding:50px; margin:30px 50px; border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1); transition:0.3s;
+  }
+  .contacto:hover, .pago:hover { transform:translateY(-3px); }
+  form { display:flex; flex-direction:column; gap:20px; }
+  input, textarea { padding:12px; border-radius:10px; border:1px solid #ccc; width:100%; font-size:1rem; }
+  input[type="submit"] { background-color:#00bcd4; color:#fff; border:none; cursor:pointer; font-weight:600; border-radius:25px; }
+  input[type="submit"]:hover { background-color:#0097a7; transform:scale(1.03); }
+
+  .whatsapp-btn {
+    display:inline-flex; align-items:center; gap:8px;
+    background:#25D366; color:#fff; padding:12px 20px; border-radius:25px;
+    font-weight:600; text-decoration:none; transition:0.3s; margin-top:10px;
+  }
+  .whatsapp-btn:hover { background:#1DA851; transform:scale(1.05); }
+
+  .phone { display:inline-flex; align-items:center; gap:8px; color:#00bcd4; font-weight:600; }
+
+  footer { background:#111; color:#fff; text-align:center; padding:25px; font-size:0.9rem; }
+  footer a { color:#00bcd4; text-decoration:none; }
+
+  @media(max-width:768px){
+    header { flex-direction:column; text-align:center; }
+    nav { margin-top:10px; }
+    .hero h2 { font-size:2.2rem; }
+    .hero p { font-size:1.1rem; }
+    .contacto, .pago, .producto-destacado { margin:20px; padding:30px; }
+    .productos { padding:0 20px 40px; }
+    .producto-destacado { flex-direction:column; }
+    .producto-destacado img { width:100%; height:auto; border-radius:15px 15px 0 0; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>AirKaz45</h1>
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#destacado">Destacado</a>
+    <a href="#productos">Productos</a>
+    <a href="#contacto">Contacto</a>
+    <a href="#pago">Pago en Madrid</a>
+  </nav>
+</header>
+
+<section class="hero" id="inicio">
+  <h2>Electrónica y fragancias exclusivas</h2>
+  <p>AirPods Pro 2 y colonias premium. Pago en persona en Madrid.</p>
+</section>
+
+<h2 class="section-title" id="destacado">Producto Destacado</h2>
+<div class="producto-destacado">
+  <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MQD83?wid=532&hei=582&fmt=png-alpha&.v=1660803960319" alt="AirPods Pro 2">
+  <div class="producto-destacado-content">
+    <h3>AirPods Pro 2</h3>
+    <p>Producto destacado de la semana: cancelación de ruido avanzada y sonido envolvente premium. ¡Reserva ahora!</p>
+    <a class="btn" href="#contacto">Reservar</a>
+  </div>
+</div>
+
+<h2 class="section-title">Nuestros Productos</h2>
+<section class="productos" id="productos">
+  <div class="producto">
+    <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MQD83?wid=532&hei=582&fmt=png-alpha&.v=1660803960319" alt="AirPods Pro 2">
+    <div class="producto-content">
+      <h3>AirPods Pro 2</h3>
+      <p>Cancelación de ruido avanzada y sonido envolvente.</p>
+    </div>
+    <a class="btn" href="#contacto">Reservar</a>
+  </div>
+
+  <div class="producto">
+    <img src="https://images.unsplash.com/photo-1585386959984-a4155223f8ef?auto=format&fit=crop&w=800&q=80" alt="Colonia de lujo">
+    <div class="producto-content">
+      <h3>Colonia de lujo</h3>
+      <p>Fragancia elegante y duradera. Ideal para toda ocasión.</p>
+    </div>
+    <a class="btn" href="#contacto">Reservar</a>
+  </div>
+</section>
+
+<section class="contacto" id="contacto">
+  <h2>Contacto</h2>
+  <p>Déjanos tu mensaje y nos pondremos en contacto contigo o llámanos directamente.</p>
+  <form action="mailto:contacto@airkaz45.com" method="post" enctype="text/plain">
+    <input type="text" name="nombre" placeholder="Tu nombre" required>
+    <input type="email" name="email" placeholder="Tu correo electrónico" required>
+    <input type="tel" name="telefono" placeholder="Tu teléfono (opcional)">
+    <textarea name="mensaje" rows="5" placeholder="Escribe tu mensaje..." required></textarea>
+    <input type="submit" value="Enviar mensaje">
+  </form>
+  <p class="phone"><i class="fas fa-phone"></i> Contacto general: 623 268 461</p>
+  <a class="whatsapp-btn" href="https://wa.me/34623268461?text=Hola%20AirKaz45,%20tengo%20una%20consulta" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp General</a>
+  <p class="phone"><i class="fas fa-phone"></i> Reservas: 632 045 131</p>
+  <a class="whatsapp-btn" href="https://wa.me/34632045131?text=Hola%20AirKaz45,%20quiero%20reservar%20un%20producto" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Reservas</a>
+</section>
+
+<section class="pago" id="pago">
+  <h2>Pago en persona en Madrid</h2>
+  <p>Todos nuestros productos se pagan en efectivo o transferencia al momento de la entrega. Solo disponible para clientes en Madrid.</p>
+  <p>Para reservar un producto, envíanos un mensaje desde la sección de contacto o llámanos al número de reservas, y acordaremos un punto de encuentro seguro.</p>
+  <p>⚠️ No realizamos envíos ni pagos online. Solo encuentros en Madrid.</p>
+</section>
+
+<footer>
+  <p>&copy; 2025 AirKaz45. Todos los derechos reservados.</p>
+  <p>📧 <a href="mailto:contacto@airkaz45.com">contacto@airkaz45.com</a></p>
+</footer>
+</body>
+</html>
